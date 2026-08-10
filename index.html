@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="description" content="Private itinerary.">
+<title>NYC — Sept 9–13</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+#pw-gate{
+  position:fixed;inset:0;z-index:9999;background:#05070c;
+  display:flex;align-items:center;justify-content:center;transition:opacity .4s cubic-bezier(.16,1,.3,1);
+  font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;padding:20px;
+}
+#pw-card{
+  background:#10141f;border:1px solid rgba(224,178,60,.32);border-radius:3px;
+  padding:44px 32px;max-width:340px;width:100%;text-align:center;
+  box-shadow:0 24px 70px rgba(0,0,0,.6);
+}
+#pw-card h1{
+  font-family:Georgia,"Iowan Old Style",serif;font-weight:400;font-size:30px;
+  color:#f4f1e8;letter-spacing:.02em;margin-bottom:6px;
+}
+#pw-card p{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10px;
+  letter-spacing:.22em;color:#6f7183;text-transform:uppercase;margin-bottom:26px;
+}
+#pw-input{
+  width:100%;padding:12px 16px;background:#07090f;border:1px solid rgba(224,178,60,.14);
+  border-radius:3px;font-size:16px;text-align:center;letter-spacing:.2em;color:#f4f1e8;
+  outline:none;transition:border-color .2s;
+}
+#pw-input:focus{border-color:#e0b23c}
+#pw-btn{
+  margin-top:12px;width:100%;padding:12px;min-height:46px;background:#e0b23c;color:#07090f;
+  border:none;border-radius:3px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;
+  transition:opacity .2s;
+}
+#pw-btn:hover{opacity:.85}
+#pw-btn:focus-visible,#pw-input:focus-visible{outline:2px solid #e0b23c;outline-offset:3px}
+#pw-error{
+  margin-top:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;
+  letter-spacing:.1em;color:#cf6058;min-height:1.2em;
+}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.shake{animation:shake .35s ease}
+body.locked{overflow:hidden}
+@media (prefers-reduced-motion:reduce){#pw-gate,.shake{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body class="locked">
+
+<div id="pw-gate">
+  <div id="pw-card">
+    <h1>NYC</h1>
+    <p>private</p>
+    <input id="pw-input" type="password" placeholder="password" aria-label="Password" autocomplete="off">
+    <button id="pw-btn" type="button">Unlock</button>
+    <div id="pw-error" role="alert"></div>
+  </div>
+</div>
+
+<style>
+:root{
+  --bg:#07090f; --surface:#10141f; --surface-2:#171d2b; --surface-3:#1e2536;
+  --border:rgba(224,178,60,.14); --border-2:rgba(224,178,60,.32);
+  --text:#f4f1e8; --muted:#9a9aab; --dim:#6f7183;
+  --brass:#e0b23c; --brass-lt:#f7dc95; --brass-dk:#7a5f1c;
+  --blue:#5b8fd6; --warn:#cf6058; --good:#5fb98a;
+  --eo:cubic-bezier(.16,1,.3,1);
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text); font-family:var(--sans);
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  padding:0 20px 100px;
+}
+.wrap{max-width:920px;margin:0 auto}
+a{color:var(--brass-lt);text-decoration:none;border-bottom:1px solid var(--border-2)}
+a:hover{color:var(--brass)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:3px}
+
+/* ── entrance ── */
+.e{opacity:0;transform:translateY(14px);animation:rise .7s var(--eo) forwards}
+.e1{animation-delay:.09s}.e2{animation-delay:.18s}.e3{animation-delay:.27s}.e4{animation-delay:.36s}
+@keyframes rise{to{opacity:1;transform:none}}
+.rev{opacity:0;transform:translateY(18px);transition:opacity .55s var(--eo),transform .55s var(--eo)}
+.rev.in{opacity:1;transform:none}
+
+/* ── masthead ── */
+header{padding:76px 0 0}
+.kicker{
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--brass);display:flex;gap:14px;align-items:center;flex-wrap:wrap
+}
+.kicker::after{content:"";flex:1;height:1px;background:var(--border-2);min-width:30px}
+h1{
+  font-family:var(--serif);font-weight:400;font-size:clamp(38px,7.4vw,68px);
+  line-height:1.03;letter-spacing:-.022em;margin:20px 0 0;text-wrap:balance
+}
+h1 em{font-style:italic;color:var(--brass)}
+.dek{color:var(--muted);font-size:17px;max-width:60ch;margin-top:18px}
+
+/* ── the clock strip ── */
+.clock{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  background:var(--border);border:1px solid var(--border);border-radius:3px;
+  margin:38px 0 0;overflow:hidden
+}
+.clock div{background:var(--surface);padding:16px 18px}
+.clock dt{
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:7px
+}
+.clock dd{font-family:var(--mono);font-size:21px;font-variant-numeric:tabular-nums;color:var(--text)}
+.clock dd small{display:block;font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:4px;font-family:var(--sans)}
+.clock .hot dd{color:var(--warn)}
+
+/* ── section headings ── */
+h2{
+  font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.6vw,34px);
+  letter-spacing:-.015em;margin:0 0 6px;text-wrap:balance
+}
+.sec{margin-top:84px}
+.sec>.lede{color:var(--muted);max-width:62ch;margin-bottom:26px}
+
+/* ── the run sheet ── */
+.day{
+  border-top:1px solid var(--border);padding:34px 0 6px;position:relative
+}
+.day-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.day-num{
+  font-family:var(--serif);font-size:46px;line-height:1;color:var(--brass-dk);
+  font-variant-numeric:tabular-nums
+}
+.day-name{font-family:var(--serif);font-size:26px;letter-spacing:-.01em}
+.day-tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--bg);background:var(--brass);padding:4px 9px;border-radius:2px;align-self:center
+}
+.day-tag.quiet{background:transparent;color:var(--dim);border:1px solid var(--border-2)}
+.day-tag.hot{background:var(--warn);color:#fff}
+
+.slot{display:grid;grid-template-columns:78px 1fr;gap:20px;padding:0 0 26px}
+.slot .t{
+  font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;
+  color:var(--brass);padding-top:3px;letter-spacing:.02em
+}
+.slot .t small{display:block;color:var(--dim);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.slot h3{font-size:17px;font-weight:600;letter-spacing:-.01em;margin-bottom:5px}
+.slot p{color:var(--muted);font-size:15px;max-width:60ch}
+.slot p+p{margin-top:9px}
+.slot .body{border-left:1px solid var(--border);padding-left:20px;transition:border-color .2s var(--eo)}
+.slot:hover .body{border-color:var(--border-2)}
+
+/* status chips */
+.chip{
+  display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;
+  vertical-align:middle;margin-left:8px;white-space:nowrap
+}
+.chip.new{color:var(--brass);border:1px solid var(--border-2)}
+.chip.done{color:var(--good);border:1px solid rgba(95,185,138,.3)}
+.chip.risk{color:var(--warn);border:1px solid rgba(207,96,88,.35)}
+.chip.sn{color:var(--blue);border:1px solid rgba(91,143,214,.35)}
+
+/* the beams — friday only */
+.beams{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity 1.4s var(--eo) .2s}
+.day.in .beams{opacity:1}
+.beams i{
+  position:absolute;top:0;bottom:0;width:2px;
+  background:linear-gradient(to top,rgba(224,178,60,0),rgba(224,178,60,.16) 30%,rgba(224,178,60,.05));
+}
+.beams i:first-child{right:14%}
+.beams i:last-child{right:20%}
+
+/* callout */
+.note{
+  background:var(--surface);border:1px solid var(--border);border-left:2px solid var(--brass);
+  padding:16px 18px;border-radius:2px;margin-top:14px;font-size:14.5px;color:var(--muted)
+}
+.note.warn{border-left-color:var(--warn)}
+.note strong{color:var(--text);font-weight:600}
+
+/* ── tables ── */
+.scroll{overflow-x:auto;border:1px solid var(--border);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
+th{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim);text-align:left;padding:13px 16px;border-bottom:1px solid var(--border);font-weight:400
+}
+td{padding:13px 16px;border-bottom:1px solid rgba(224,178,60,.07);vertical-align:top;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--text);font-weight:500;white-space:nowrap}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--text);text-align:right;white-space:nowrap}
+tbody tr{transition:background .18s var(--eo)}
+tbody tr:hover{background:var(--surface-2)}
+
+/* rating dot */
+.rt{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:13px;padding:2px 7px;border-radius:2px;display:inline-block}
+.rt-10{color:#f2c94c;background:rgba(242,201,76,.1)}
+.rt-9{color:#f28f5b;background:rgba(242,143,91,.1)}
+.rt-8{color:#e0698b;background:rgba(224,105,139,.1)}
+
+/* ── alarm list ── */
+.alarms{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.alarm{display:grid;grid-template-columns:132px 1fr auto;gap:18px;align-items:center;background:var(--surface);padding:17px 18px;transition:background .2s var(--eo)}
+.alarm:hover{background:var(--surface-2)}
+.alarm .when{font-family:var(--mono);font-size:12.5px;color:var(--brass);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.alarm .when b{display:block;color:var(--text);font-size:14px;font-weight:600;letter-spacing:0}
+.alarm .what{font-size:14.5px;color:var(--muted)}
+.alarm .what b{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:15px}
+.alarm .fuse{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--warn);padding:4px 8px;border-radius:2px;white-space:nowrap}
+.alarm .fuse.soft{background:transparent;color:var(--dim);border:1px solid var(--border-2)}
+
+/* ── q list ── */
+.qs{list-style:none;display:flex;flex-direction:column;gap:14px}
+.qs li{padding-left:26px;position:relative;color:var(--muted);font-size:15px;max-width:66ch}
+.qs li::before{content:"?";position:absolute;left:0;top:0;font-family:var(--mono);color:var(--warn);font-size:14px}
+.qs li b{color:var(--text);font-weight:600}
+
+footer{margin-top:88px;padding-top:26px;border-top:1px solid var(--border);color:var(--dim);font-size:12.5px;font-family:var(--mono);letter-spacing:.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:600px){
+  body{padding:0 16px 70px}
+  header{padding-top:48px}
+  .slot{grid-template-columns:60px 1fr;gap:13px}
+  .slot .body{padding-left:14px}
+  .alarm{grid-template-columns:1fr;gap:8px}
+  .alarm .fuse{justify-self:start}
+  .day-num{font-size:36px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .e,.rev{opacity:1;transform:none}
+  .beams{opacity:1}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker e e1">Sept 9 – 13 · 2026 · four people, two couples</div>
+  <h1 class="e e2">Lucas &amp; Lucia<br>take <em>New York</em></h1>
+  <p class="dek e e3">
+    Four nights, and only two of them are really yours — Daivik works 9–5 Thursday and Friday,
+    and the flight home leaves at five in the morning. Everything below is built around those two
+    facts. Recommendations are pulled from the <strong style="color:var(--text)">DSN list</strong>,
+    with the already-ticked separated from the still-unticked so nothing gets repeated.
+  </p>
+
+  <dl class="clock e e4">
+    <div><dt>Wheels down</dt><dd>22:00<small>Wed Sept 9</small></dd></div>
+    <div><dt>Free from</dt><dd>17:00<small>Thu &amp; Fri — 9–5 is Humana's</small></dd></div>
+    <div class="hot"><dt>Wheels up</dt><dd>05:00<small>Sun Sept 13 — car at 02:15</small></dd></div>
+    <div><dt>Last real night</dt><dd>SAT<small>Sept 12. There is no Sunday.</small></dd></div>
+  </dl>
+</header>
+
+<section class="sec">
+  <h2 class="rev">The run sheet</h2>
+  <p class="lede rev">Times are anchors, not a schedule to obey. The only two that are load-bearing are the 5am flight and the Resy drops.</p>
+
+  <!-- WED -->
+  <article class="day rev">
+    <div class="day-head">
+      <span class="day-num">09</span>
+      <span class="day-name">Wednesday</span>
+      <span class="day-tag quiet">landing</span>
+    </div>
+    <div class="slot">
+      <div class="t">22:00<small>land</small></div>
+      <div class="body">
+        <h3>Airport run, and nothing else</h3>
+        <p>A 10pm landing means bags and a bed by midnight at best — and Daivik is at a desk at nine.
+        Resist the urge to make Wednesday a night. The whole weekend is downstream of him not being wrecked on Thursday.</p>
+        <p>If they're hungry: <strong style="color:var(--text)">L'Industrie</strong> is an 8 on the list and open late,
+        or just a slice near home. Save the list for the nights that can carry it.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- THU -->
+  <article class="day rev">
+    <div class="day-head">
+      <span class="day-num">10</span>
+      <span class="day-name">Thursday</span>
+      <span class="day-tag">BBQ at Sneha's</span>
+    </div>
+    <div class="slot">
+      <div class="t">17:15<small>out</small></div>
+      <div class="body">
+        <h3>Straight from work to hers</h3>
+        <p>No transit puzzle, no reservation, no clock. The correct first night with people who just flew in.</p>
+      </div>
+    </div>
+    <div class="slot">
+      <div class="t">18:30<small>fire on</small></div>
+      <div class="body">
+        <h3>The BBQ <span class="chip done">✓ rated 10</span></h3>
+        <p><strong style="color:var(--text)">BBQ is the highest-rated Vibe on the entire NYC list</strong> — a straight 10,
+        above the Centurion Lounge at 9 and Daintree at 7. This isn't a fallback because it's easy. It's the best thing
+        you two have logged in this city, and you already know how to run it.</p>
+        <div class="note">
+          <strong>Shop Wednesday, not Thursday.</strong> The one way this night goes wrong is a 5:30pm grocery run
+          with two jet-lagged guests in the car. Roughly <strong>$120</strong> covers four people properly.
+        </div>
+      </div>
+    </div>
+    <div class="slot">
+      <div class="t">21:30<small>after</small></div>
+      <div class="body">
+        <h3>Torico <span class="chip done">✓ rated 9</span></h3>
+        <p>Jersey City, two visits already, a 9. Five minutes away and it ends the night without starting a new one.
+        <strong style="color:var(--text)">Salt &amp; Straw</strong> (also a 9) if you'd rather stay Manhattan-side.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- FRI -->
+  <article class="day rev">
+    <div class="beams" aria-hidden="true"><i></i><i></i></div>
+    <div class="day-head">
+      <span class="day-num">11</span>
+      <span class="day-name">Friday</span>
+      <span class="day-tag">the dinner</span>
+      <span class="day-tag hot">9/11 · 25 years</span>
+    </div>
+
+    <div class="slot">
+      <div class="t">19:30<small>dinner</small></div>
+      <div class="body">
+        <h3>COTE — Butcher's Feast <span class="chip new">unticked</span></h3>
+        <p>Michelin-starred Korean steakhouse in Flatiron. Four cuts, banchan, stew, soft serve — <strong style="color:var(--text)">$82 a head,
+        about $430 all-in for four</strong> with tax and twenty percent. That lands inside the $400–600 you set and still
+        leaves room for drinks after.</p>
+        <p>It's a table where the food keeps arriving and nobody has to perform being impressed. With two couples,
+        one of whom you're hosting, that beats a silent tasting menu.</p>
+        <div class="note warn">
+          <strong>One hard catch: COTE has no vegetarian version.</strong> If Lucia or Lucas doesn't eat meat,
+          this pick dies — go <strong>Semma</strong> instead (Michelin star, South Indian, deeply vegetarian,
+          ≈$550–600 all-in for four). Different Resy window: 15 days out at 9:00am, so <strong>Thu Aug 27</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="t">22:00<small>free</small></div>
+      <div class="body">
+        <h3>The Tribute in Light</h3>
+        <p>Friday is the <strong style="color:var(--text)">25th anniversary of September 11th</strong>. Eighty-eight searchlights
+        throw two beams into the sky from dusk until dawn, visible for sixty miles.</p>
+        <p>Everyone's instinct is to go downtown. Don't — the 25th will be crowded and heavily policed, and the beams
+        read better from a distance anyway. <strong style="color:var(--text)">Your side of the river is the good seat.</strong>
+        The Newport waterfront looks straight at them across the water, six minutes from your door, and it costs nothing.</p>
+        <p>It will be the most memorable thing on this itinerary, and it isn't on any list.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- SAT -->
+  <article class="day rev">
+    <div class="day-head">
+      <span class="day-num">12</span>
+      <span class="day-name">Saturday</span>
+      <span class="day-tag">closing act</span>
+    </div>
+
+    <div class="slot">
+      <div class="t">12:30<small>the two of you</small></div>
+      <div class="body">
+        <h3>Centurion New York <span class="chip new">unticked</span></h3>
+        <p>55th floor of One Vanderbilt. The dining room, <em>The Gallery</em>, is Daniel Boulud's. Members-only club,
+        open 11am–10pm — and since Saturday lunch is just you and Lucas, this is the right slot for it. Two people,
+        no logistics, and it's the flex without needing to be a $600 dinner. Budget <strong style="color:var(--text)">~$150 for two</strong>.</p>
+        <div class="note warn">
+          <strong>Verify access before you promise it.</strong> Amex's own terms list Centurion New York as
+          <em>Centurion card</em> access; Platinum is described only as "certain times," which is not something to
+          discover at the elevator. There's a public dining path — <strong>call 212-597-9070 between 10am and noon on a weekday</strong>
+          and book The Gallery outright. Do that this week, not in September.
+        </div>
+        <p style="margin-top:12px">Worth knowing: the <strong style="color:var(--text)">Centurion Lounge</strong> already on your list
+        at a 9 is the <em>airport</em> one. This is a different room, and it's unticked. Also — a 5am Sunday flight means
+        the airport lounge won't even be open, so this is the only version that happens.</p>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="t">18:15<small>all four</small></div>
+      <div class="body">
+        <h3>SUMMIT One Vanderbilt <span class="chip new">unticked</span></h3>
+        <p>Same tower you had lunch in. Sunset is around 7:10pm, so a 6:15 slot buys the mirror rooms in daylight,
+        golden hour, and the city lit up — three looks on one ticket. From <strong style="color:var(--text)">~$44 a head, ~$200 for four</strong>.
+        Timed entry, and weekend sunset slots sell out.</p>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="t">20:00<small>2 min walk</small></div>
+      <div class="body">
+        <h3>The Campbell, Grand Central <span class="chip new">unticked</span></h3>
+        <p>A 1920s railroad tycoon's private office, now a bar, sixty seconds from the SUMMIT exit.
+        Third unticked item of the night without getting in a single cab.</p>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="t">21:30<small>pick one</small></div>
+      <div class="body">
+        <h3>BATSU! <span class="chip new">flagged "up next"</span></h3>
+        <p>Live Japanese gameshow — comedians take real punishments for losing. 21+, East Village,
+        <strong style="color:var(--text)">$59.40 a head Fri/Sat, $238 for four</strong>. You already flagged it <em>up next</em>
+        on the list, which means it's been waiting for exactly this: four people, last night, nothing to be precious about.</p>
+        <p><strong style="color:var(--text)">Or skip it</strong> and make Campbell the long stop with a late dinner nearby.
+        Saturday is already three items deep — a fourth is optional, and their flight is in seven hours.</p>
+      </div>
+    </div>
+
+    <div class="slot">
+      <div class="t">02:15<small>Sunday</small></div>
+      <div class="body">
+        <h3>The car</h3>
+        <p>A 5:00am flight means wheels at roughly 02:15. Book it in advance — 2am surge on a
+        US Open finals weekend is not a thing to gamble on. And whoever is driving or riding shepherd
+        should know by Saturday afternoon that they're doing it.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="sec">
+  <h2 class="rev">Already ticked — don't repeat these</h2>
+  <p class="lede rev">The NYC list has 22 rated food entries, 5 vibes, 6 drinks. These are the ones that scored high enough to be tempting to re-run. Two of them are load-bearing this weekend; the rest are proof you've already spent this card.</p>
+  <div class="scroll rev">
+    <table>
+      <thead><tr><th>Place</th><th>Rating</th><th>Read</th></tr></thead>
+      <tbody>
+        <tr><td>BBQ 🍖</td><td class="num"><span class="rt rt-10">10</span></td><td>Top vibe on the whole list. <strong style="color:var(--text)">This is Thursday.</strong></td></tr>
+        <tr><td>Ambassadors Clubhouse</td><td class="num"><span class="rt rt-10">10</span></td><td>Already done, and it's the same Unapologetic Foods family as Semma — which is why Semma is the backup, not the headline.</td></tr>
+        <tr><td>Spring Lounge</td><td class="num"><span class="rt rt-10">10</span></td><td>"Fought for a nic here." Dive, not a hosting bar.</td></tr>
+        <tr><td>Electric Shuffle</td><td class="num"><span class="rt rt-9">9.5</span></td><td>Genuinely good for four — but you've done it, and the happy hour is the point.</td></tr>
+        <tr><td>Centurion Lounge</td><td class="num"><span class="rt rt-9">9</span></td><td>The <em>airport</em> one. Centurion New York is a different room and is unticked.</td></tr>
+        <tr><td>Bangalore Kitchen</td><td class="num"><span class="rt rt-9">9</span></td><td>Two visits. Business, not a guest night.</td></tr>
+        <tr><td>Torico · Salt &amp; Straw · Venchi</td><td class="num"><span class="rt rt-9">9</span></td><td>Dessert is solved three ways over. Use it Thursday.</td></tr>
+        <tr><td>The Ainsworth</td><td class="num"><span class="rt rt-8">8.9</span></td><td>Hoboken patio, veg options. The safety net if a booking falls through.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="rev">Unticked, and right for four</h2>
+  <p class="lede rev">Pulled from the 52-item NYC to-do. Filtered hard: it has to work after 5pm, in September, for two couples. That kills the Knicks game (no season), Brooklyn Flea and the farmers market (weekend daytime — and Saturday daytime is spoken for), cherry blossoms, ice skating, and the Socarrat flamenco (free Tuesdays only).</p>
+  <div class="scroll rev">
+    <table>
+      <thead><tr><th>Item</th><th>Cost / 4</th><th>Where it fits</th></tr></thead>
+      <tbody>
+        <tr><td>SUMMIT One Vanderbilt 🔭</td><td class="num">~$200</td><td><strong style="color:var(--text)">Sat 18:15.</strong> Stacks with the Centurion lunch — same building.</td></tr>
+        <tr><td>The Campbell @ Grand Central 🍸</td><td class="num">~$100</td><td><strong style="color:var(--text)">Sat 20:00.</strong> Two minutes from SUMMIT.</td></tr>
+        <tr><td>BATSU! 🎌</td><td class="num">$238</td><td><strong style="color:var(--text)">Sat 21:30.</strong> Already flagged "up next." Sells out a month ahead.</td></tr>
+        <tr><td>Love Thy Neighbor 🍶</td><td class="num">~$120</td><td><span class="chip sn">sn sent</span> Japanese cave bar. The Friday nightcap if you skip the waterfront.</td></tr>
+        <tr><td>Sirrah 🍟</td><td class="num">~$160</td><td><span class="chip sn">sn sent</span> Unlimited truffle fries. Reads as a Thursday, not a Friday.</td></tr>
+        <tr><td>Obvio / The Commerce Inn 🍽</td><td class="num">~$300</td><td><span class="chip sn">sn sent</span> Cheaper Friday dinners that also tick the list. Commerce Inn is Rita Sodi &amp; Jody Williams — a real West Village room.</td></tr>
+        <tr><td>Rooftop hopping, Midtown 🌆</td><td class="num">open</td><td>Friday's alternative if the weather is good and nobody wants a plan.</td></tr>
+        <tr><td>High Line at dusk 🌆</td><td class="num">free</td><td>Only if Friday dinner moves earlier. Worth it, but not at 10pm.</td></tr>
+        <tr><td>See a Musical 🎭</td><td class="num">$400+</td><td>Flagged "up next," but it eats the same Saturday slot as SUMMIT and costs more. Save it.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="rev">Book these, in this order</h2>
+  <p class="lede rev">Two of the four have already-open windows. The Friday dinner is the one with a real fuse.</p>
+  <div class="alarms rev">
+    <div class="alarm">
+      <div class="when"><b>Wed Aug 12</b>10:00am ET</div>
+      <div class="what"><b>COTE — Friday Sept 11, table for 4</b>Resy opens exactly 30 days out at 10:00. Friday tables go in under a minute. Link the Amex Platinum in Resy first — Global Dining Access shows inventory the public list doesn't.</div>
+      <div class="fuse">tomorrow</div>
+    </div>
+    <div class="alarm">
+      <div class="when"><b>Wed Aug 12</b>anytime</div>
+      <div class="what"><b>BATSU! — Saturday Sept 12</b>Buy direct at batsunyc.com, not a reseller. Shows sell out more than a month out and Sept 12 is a month out.</div>
+      <div class="fuse">tomorrow</div>
+    </div>
+    <div class="alarm">
+      <div class="when"><b>This week</b>10am–12pm, weekday</div>
+      <div class="what"><b>Centurion New York — call 212-597-9070</b>Confirm whether the Platinum gets you in on a Saturday, and book The Gallery for two if it doesn't. Don't find out at the elevator.</div>
+      <div class="fuse soft">before you promise it</div>
+    </div>
+    <div class="alarm">
+      <div class="when"><b>Mid-Aug</b>—</div>
+      <div class="what"><b>SUMMIT One Vanderbilt — 6:15pm Sat Sept 12</b>Timed entry. Weekend sunset slots sell out and cost more than weekday ones.</div>
+      <div class="fuse soft">soft</div>
+    </div>
+    <div class="alarm">
+      <div class="when"><b>Thu Aug 27</b>9:00am ET</div>
+      <div class="what"><b>Semma — only if COTE is out</b>15 days out at 9:00am. This is the vegetarian branch of the plan; skip it entirely if COTE lands.</div>
+      <div class="fuse soft">conditional</div>
+    </div>
+    <div class="alarm">
+      <div class="when"><b>Early Sept</b>—</div>
+      <div class="what"><b>Car for 02:15am, Sunday Sept 13</b>Pre-book. 2am surge on US Open finals weekend is not worth gambling on.</div>
+      <div class="fuse soft">soft</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="rev">Six things I can't answer for you</h2>
+  <p class="lede rev">Each of these changes something above.</p>
+  <ul class="qs rev">
+    <li><b>Is Lucas or Lucia vegetarian?</b> This is the only fork between COTE and Semma, and it's due before 10am tomorrow.</li>
+    <li><b>Which airport, both directions?</b> A 5am from EWR is a 2:15 car; a 5am from JFK is closer to 2:00, and from LGA you get twenty minutes back.</li>
+    <li><b>Where are they sleeping?</b> If it's your place, the Wednesday landing is easy and Saturday's 2am exit is easy. If it's a hotel, both ends get harder and the Saturday plan should end nearer to them.</li>
+    <li><b>Who's awake at 2am Sunday?</b> Decide before Saturday night starts, because it determines who's drinking at Campbell.</li>
+    <li><b>Does Sneha's place actually work for a Thursday BBQ</b> — space, grill, the dog underfoot with two guests? If it's tight, Ainsworth's patio is the swap.</li>
+    <li><b>Is Saturday too full?</b> Lunch, sunset, a bar, a show, then an airport run. Cutting BATSU! is the pressure valve, and it's the one thing here you can cancel cheaply.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2 class="rev">What it costs</h2>
+  <div class="scroll rev">
+    <table>
+      <thead><tr><th>Night</th><th>What</th><th>Est.</th></tr></thead>
+      <tbody>
+        <tr><td>Thu</td><td>BBQ groceries + Torico</td><td class="num">~$150</td></tr>
+        <tr><td>Fri</td><td>COTE for four, all-in · beams are free</td><td class="num">~$430</td></tr>
+        <tr><td>Sat</td><td>Centurion lunch for two</td><td class="num">~$150</td></tr>
+        <tr><td>Sat</td><td>SUMMIT + Campbell + BATSU! for four</td><td class="num">~$540</td></tr>
+        <tr><td>Sun</td><td>2:15am airport car</td><td class="num">~$90</td></tr>
+        <tr><td style="color:var(--brass)">Total</td><td>Four days, four people</td><td class="num" style="color:var(--brass)">~$1,360</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note rev" style="margin-top:18px">
+    <strong>The $400–600 you set was for one night — and Friday hits it at $430.</strong>
+    The rest is the other three days, which you hadn't priced yet. If the total needs to come down,
+    cut BATSU! ($238) and let Campbell run long; that's the cheapest $240 to give back.
+  </div>
+</section>
+
+<footer>
+  <span>DSN list · NYC · 22 rated / 52 to-do</span>
+  <span>Built Aug 10 2026 · on the JARVIS board as e-lucas-visit</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.rev').forEach(function(n){ n.classList.add('in'); });
+    document.querySelectorAll('.day').forEach(function(n){ n.classList.add('in'); });
+    return;
+  }
+  var nodes = document.querySelectorAll('.rev');
+  if (!('IntersectionObserver' in window)) {
+    nodes.forEach(function(n){ n.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+  nodes.forEach(function(n){ io.observe(n); });
+})();
+</script>
+
+<script>
+(function(){
+  var gate  = document.getElementById('pw-gate');
+  var input = document.getElementById('pw-input');
+  var btn   = document.getElementById('pw-btn');
+  var err   = document.getElementById('pw-error');
+
+  function unlock(){
+    if(!gate) return;
+    document.body.classList.remove('locked');
+    gate.style.opacity = '0';
+    setTimeout(function(){ gate.remove(); }, 400);
+  }
+  function check(){
+    if(input.value.trim().toLowerCase() === 'nyc'){
+      try { sessionStorage.setItem('nyc-unlocked','1'); } catch(e){}
+      unlock();
+    } else {
+      input.classList.remove('shake'); void input.offsetWidth; input.classList.add('shake');
+      err.textContent = 'nope. try again.';
+      input.value = '';
+    }
+  }
+  btn.addEventListener('click', check);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Enter') check(); });
+
+  var open = false;
+  try { open = sessionStorage.getItem('nyc-unlocked') === '1'; } catch(e){}
+  if(open){ unlock(); } else { setTimeout(function(){ input.focus(); }, 100); }
+})();
+</script>
+
+</body>
+</html>
